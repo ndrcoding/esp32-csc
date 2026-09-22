@@ -1,0 +1,36 @@
+//sketch.ino
+#include <Wire.h>
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(21, 22);
+}
+
+void loop() {
+
+  Wire.beginTransmission(0x68);
+  Wire.write(0x41);
+  Wire.endTransmission();
+
+  Wire.requestFrom(0x68, 2);
+
+  if (Wire.available() == 2) {
+
+    int high = Wire.read();
+    int low = Wire.read();
+
+    int value = (high << 8) | low;
+
+    if (value > 32767) {
+      value = value - 65536;
+    }
+
+    float temperature = value / 340.0 + 36.53;
+
+    Serial.print("Temperature: ");
+    Serial.print(temperature);
+    Serial.println(" C");
+  }
+
+  delay(1000);
+}
