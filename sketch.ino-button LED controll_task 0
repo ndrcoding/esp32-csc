@@ -1,0 +1,24 @@
+//sketch.ino
+const int LED_PIN=2;
+const int BUTTON_PIN=4;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);//debug messages
+  pinMode(LED_PIN,OUTPUT);//Configures GPIO2 as  output pin
+  pinMode(BUTTON_PIN,INPUT_PULLUP);//enable es32 built in pullup AS INPUT
+  Serial.println("setup complete");
+}
+
+void loop() {
+  int buttonState= digitalRead(BUTTON_PIN);//read high or low
+ 
+ if(buttonState==LOW)//PRESED BUTTON
+ {
+  digitalWrite(LED_PIN, HIGH);
+  Serial.println("Button pressed-LED ON");
+}
+else{
+  digitalWrite(LED_PIN,LOW);
+  Serial.println("Button released-LED OFF");
+}
+}
