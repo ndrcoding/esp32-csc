@@ -1,0 +1,23 @@
+//diagram.json
+{
+  "version": 1,
+  "author": "Mohammed Nadeer",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 35,
+      "left": -124.8,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.r", "esp:4", "green", [ "v0", "h192.2", "v115.2" ] ],
+    [ "btn1:2.l", "esp:GND.1", "green", [ "h19.2", "v77" ] ]
+  ],
+  "dependencies": {}
+}
