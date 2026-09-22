@@ -1,0 +1,33 @@
+//diagram.json
+{
+  "version": 1,
+  "author": "Mohammed Nadeer",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -35.26,
+      "left": -143.77,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": -24.98, "left": 127.12, "attrs": {} },
+    { "type": "wokwi-logic-analyzer", "id": "logic1", "top": 192.35, "left": -182.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "esp:22", "oled1:SCL", "green", [ "h0" ] ],
+    [ "oled1:SDA", "esp:21", "green", [ "v0" ] ],
+    [ "esp:21", "imu1:SDA", "green", [ "h52.84", "v-9.6" ] ],
+    [ "imu1:SCL", "esp:22", "green", [ "v0" ] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "imu1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "logic1:D0", "esp:21", "green", [ "h0" ] ],
+    [ "logic1:D1", "esp:22", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
