@@ -1,0 +1,25 @@
+//sketch.ino
+volatile int count = 0;
+
+void buttonPressed() {
+  count++;
+  }
+
+  void setup() {
+ Serial.begin(115200);
+
+ pinMode(4, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(4), buttonPressed, FALLING);
+ }
+
+ void loop() {
+
+ noInterrupts();
+ int safeCount = count;
+  interrupts();
+
+  Serial.print("Shared Count: ");
+  Serial.println(safeCount);
+
+ delay(1000);
+ }
