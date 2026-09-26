@@ -1,4 +1,13 @@
-Embedded Systems Security – Task Report
+Hardware / Embedded Security REPORT
+
+ESP32 Project - Task 0
+
+Button LED control
+(simulation link: https://wokwi.com/projects/475163504726918145)
+
+
+
+Embedded Security Research – Task 1A
 
 1. Peripheral Bus Security and Physical Sniffing (I²C)
    
