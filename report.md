@@ -11,10 +11,10 @@ Building a beginner ESP32 project using Wokwi- Controlling LED using a button
 
 Components
 
-. ESP32
-. LED
-. Resistor(220 ohm)
-. push button
+- ESP32
+- LED
+- Resistor(220 ohm)
+- push button
 
 Connections
 
