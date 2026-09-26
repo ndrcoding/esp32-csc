@@ -18,10 +18,10 @@ Components
 
 Connections
 
-. LED( anode ) - GPIO 2
-. LED( Cathode ) - Resistor end
-. Resistor - GND
-. push button - GPIO4
+- LED( anode ) - GPIO 2
+- LED( Cathode ) - Resistor end
+- Resistor - GND
+- push button - GPIO4
               - GND
 
 What I did
@@ -31,10 +31,10 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 What I studied
 
-. ESP32 basics 
-. INPUT_PULLUP--internal resistance
-. digitalRead() and digitalWrite()
-. delay()
+- ESP32 basics 
+- INPUT_PULLUP--internal resistance
+- digitalRead() and digitalWrite()
+- delay()
 
 
 
