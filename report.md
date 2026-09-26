@@ -1,6 +1,8 @@
 Embedded Systems Security – Task Report
 
 1. Peripheral Bus Security and Physical Sniffing (I²C)
+   
+ (simulation link: https://wokwi.com/projects/475372978010816513)
 
 Aim
 
@@ -69,6 +71,8 @@ I learned:
 
 
 2. Firmware Concurrency and Shared State
+
+   (simulation link: https://wokwi.com/projects/475794044534080513)
 
 Aim
 
