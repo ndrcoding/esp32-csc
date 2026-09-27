@@ -271,9 +271,9 @@ also, given a warning using  Serial.println() when accessing elements outside th
 
 **Security risk**
 
-accessing elements outside the memory causes overwrite nearby memory.
+accessing elements outside the memory causes overwrite the nearby memory.
 
-an attacker can use this for  changing program variables, crash the device, corrupt he data etc..
+an attacker can use this for  changing program variables, crash the device, corrupt the data etc..
 
 **Vulnerability**
 
