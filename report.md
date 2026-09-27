@@ -142,7 +142,7 @@ So, both the interrupt and the main program are accessing the same shared variab
 volatile int count = 0;
 because "count" is changed inside the interrupt.
 
-*Protection*
+**Protection**
 
 I used:
 
