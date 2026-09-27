@@ -1,8 +1,8 @@
-**#Hardware / Embedded Security REPORT**
+#**Hardware / Embedded Security REPORT**
 
-**##ESP32 Project - Task 0##**
+##**ESP32 Project - Task 0**
 
-**##1. Button LED control using Wokwi#**
+##**1. Button LED control using Wokwi#**
 (simulation link: https://wokwi.com/projects/475163504726918145)
 
 **Aim**
@@ -38,24 +38,24 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 
 
-**##Embedded Security Research – Task 1A**
+##**Embedded Security Research – Task 1A**
 
-1. Peripheral Bus Security and Physical Sniffing (I²C)
+##**1. Peripheral Bus Security and Physical Sniffing (I²C)**
    
  (simulation link: https://wokwi.com/projects/475372978010816513)
 
-*Aim
+**Aim**
 
 To understand I²C communication and see how data travelling through the I²C bus can be observed.
 
-*Components
+**Components**
 
 - ESP32
 - SSD1306 OLED
 - MPU6050
 - Wokwi Logic Analyzer
 
-*Connections
+**Connections**
 
 For both OLED and MPU6050:
 
@@ -64,7 +64,7 @@ For both OLED and MPU6050:
 - VCC - 3V3
 - GND - GND
 
-*What I Did
+**What I Did**
 
 First, I created an I²C scanner using the ESP32.
 
@@ -83,7 +83,7 @@ After that, I connected the Wokwi Logic Analyzer:
 
 I started the simulation and observed the I²C signals. The Logic Analyzer showed the clock pulses on SCL and changing data on SDA.
 
-*Vulnerability Identified
+**Vulnerability Identified**
 
 I²C does not provide encryption by itself.
 
@@ -91,13 +91,13 @@ Therefore, if someone gets physical access to an exposed I²C bus, they may be a
 
 This experiment demonstrated the idea using the Wokwi Logic Analyzer.
 
-*Mitigation
+**Mitigation**
 
 - Restrict physical access to the hardware.
 - Avoid exposing unnecessary I²C connections.
 - Use additional security or encryption when sensitive data is transferred.
 
-*What I Learned
+**What I Learned**
 
 - Basic I²C communication.
 - I²C device addresses.
@@ -107,28 +107,28 @@ This experiment demonstrated the idea using the Wokwi Logic Analyzer.
 - How a Logic Analyzer can be used to observe communication.
 
 
-2. Firmware Concurrency and Shared State
+##**2. Firmware Concurrency and Shared State**
 
    (simulation link: https://wokwi.com/projects/475794044534080513)
 
-*Aim
+**Aim**
 
 To understand interrupts and how the main program and an interrupt can access the same variable.
 
-*Components
+**Components**
 
 - ESP32
 - Push button
 - Serial Monitor
 
-*Connections
+**Connections**
 
 - Push button - GPIO 4
 - Other side of button - GND
 
 The ESP32's internal pull-up was used, so no external resistor was needed.
 
-*What I Did
+**What I Did**
 
 I created a variable called "count".
 
@@ -137,12 +137,12 @@ The interrupt increases the value of "count".
 The main program also reads the same variable.
 So, both the interrupt and the main program are accessing the same shared variable.
 
-I used:
+*I used:*
 
 volatile int count = 0;
 because "count" is changed inside the interrupt.
 
-*Protection
+*Protection*
 
 I used:
 
@@ -155,17 +155,17 @@ interrupts();
 This temporarily stops interrupts while the main program copies the shared value.
 The value was then displayed using the Serial Monitor.
 
-*Vulnerability Identified
+**Vulnerability Identified**
 
 When an interrupt and the main program access the same shared data, improper handling can cause inconsistent results.
 Therefore, shared data should be handled carefully.
 
-*Mitigation
+**Mitigation**
 
 - Use "volatile" for variables shared with an interrupt.
 - Protect critical access using appropriate synchronization or critical sections.
 
-*What I Learned
+**What I Learned**
 
 - What an interrupt is.
 - How to use a push-button interrupt.
@@ -174,7 +174,7 @@ Therefore, shared data should be handled carefully.
 - How to protect shared data using a critical section.
 
 
-Conclusion
+##**Conclusion**
 
 Through these two tasks, I learned two basic embedded security concepts:
 
