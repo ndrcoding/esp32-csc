@@ -40,7 +40,89 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 ## **Embedded Security Research – Task 1A**
 
-## **1. Peripheral Bus Security and Physical Sniffing (I²C)**
+## **1. Debug Interfaces and Physical Access – UART**
+
+**Aim**
+
+To understand UART communication and how a UART debug interface can expose information from an embedded system.
+
+**Components Used**
+
+- ESP32
+- Wokwi Serial Monitor
+
+No external hardware was required.
+
+**What I did**
+
+I started UART using:
+
+Serial.begin(115200);
+
+Then I used "Serial.println()" to send messages through UART.
+
+First, I tested a simple debug message:
+
+Debug message: ESP32 is running
+
+Then I used a counter to show changing information:
+
+Debug: Count = 1
+Debug: Count = 2
+Debug: Count = 3
+
+The counter was only used as a simple example of information that can be sent through UART for debugging.
+
+**Security Demonstration**
+
+To demonstrate the security problem, I intentionally sent a dummy password through the UART debug output:
+
+System running
+Debug: Device ID = ESP32_001
+Debug: Password = 1234
+
+This showed that if sensitive information is printed through an accessible debug interface, someone with access to that interface could read the information.
+
+**Vulnerability Identified**
+
+The main vulnerability is exposure of sensitive information through the UART debug interface.
+
+UART itself is useful for debugging, but leaving a debug interface accessible or printing sensitive information through it can create a security risk.
+
+**Mitigation**
+
+To reduce this risk:
+
+- Do not print passwords or secret keys through UART.
+- Avoid unnecessary debug messages in the final product.
+- Restrict physical access to UART pins.
+- Disable or restrict unused debug interfaces when appropriate.
+
+For the demonstration, I removed the password and kept only normal debugging information such as the counter.
+
+Final Observation
+
+After removing the sensitive information, the Serial Monitor showed messages such as:
+
+System running
+Debug: Count = 1
+Debug: Count = 2
+Debug: Count = 3
+
+This showed that UART can still be used for debugging without exposing unnecessary sensitive information.
+
+**What I Learned**
+
+From this task, I learned:
+
+- How UART is used for communication.
+- How UART can be used for debugging.
+- Why debug information can be useful.
+- How sensitive information can accidentally be exposed through a debug interface.
+- Why debug interfaces should be protected in a real embedded system.
+  
+
+## **2. Peripheral Bus Security and Physical Sniffing (I²C)**
    
  (simulation link: https://wokwi.com/projects/475372978010816513)
 
@@ -107,7 +189,7 @@ This experiment demonstrated the idea using the Wokwi Logic Analyzer.
 - How a Logic Analyzer can be used to observe communication.
 
 
-## **2. Firmware Concurrency and Shared State**
+## **3. Firmware Concurrency and Shared State**
 
    (simulation link: https://wokwi.com/projects/475794044534080513)
 
@@ -176,7 +258,9 @@ Therefore, shared data should be handled carefully.
 
 ## **Conclusion**
 
-Through these two tasks, I learned two basic embedded security concepts:
+Through these three tasks, I learned three basic embedded security concepts:
+
+UART : How an exposed debug interface can reveal sensitive information.
 
 I²C: Communication on a physical bus can be observed if the bus is accessible.
 
