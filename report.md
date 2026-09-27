@@ -1,22 +1,22 @@
-Hardware / Embedded Security REPORT
+**#Hardware / Embedded Security REPORT**
 
-ESP32 Project - Task 0
+**##ESP32 Project - Task 0##**
 
-Button LED control using Wokwi
+**##1. Button LED control using Wokwi#**
 (simulation link: https://wokwi.com/projects/475163504726918145)
 
-*Aim
+**Aim**
 
 Building a beginner ESP32 project using Wokwi- Controlling LED using a button
 
-*Components
+**Components**
 
 - ESP32
 - LED
 - Resistor(220 ohm)
 - push button
 
-*Connections
+**Connections**
 
 - LED( anode ) - GPIO 2
 - LED( Cathode ) - Resistor end
@@ -24,12 +24,12 @@ Building a beginner ESP32 project using Wokwi- Controlling LED using a button
 - push button - GPIO4
               - GND
 
-*What I did
+**What I did**
 
 First, I created a blinking LED using digitalWrite() and delay(), then changed it into a
 LED controlled using a button by using digitalRead() in a if-else loop .
 
-*What I Learned
+**What I Learned**
 
 - ESP32 basics 
 - INPUT_PULLUP--internal resistance
@@ -38,7 +38,7 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 
 
-Embedded Security Research – Task 1A
+**##Embedded Security Research – Task 1A**
 
 1. Peripheral Bus Security and Physical Sniffing (I²C)
    
