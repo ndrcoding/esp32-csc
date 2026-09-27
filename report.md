@@ -42,7 +42,7 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 ## **1. Debug Interfaces and Physical Access – UART**
 
-(simulation link: https://wokwi.com/projects/new/esp32)
+(simulation link: https://wokwi.com/projects/476328394870704129 )
 
 **Aim**
 
