@@ -131,6 +131,7 @@ The ESP32's internal pull-up was used, so no external resistor was needed.
 *What I Did
 
 I created a variable called "count".
+
 The push button generates an interrupt when it is pressed.
 The interrupt increases the value of "count".
 The main program also reads the same variable.
