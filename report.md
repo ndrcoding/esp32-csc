@@ -243,6 +243,8 @@ Therefore, shared data should be handled carefully.
 
 ## **4. Memory safety in embedded systems( buffer overflow)**
 
+(simulation link: https://wokwi.com/projects/476336073148403713)
+
 **Aim**
 
 Demonstrating a buffer overflow and its security risk.
@@ -255,7 +257,6 @@ Demonstrating a buffer overflow and its security risk.
 **What I did**
 
 First, I created a program using array and try to access memory outside arrays range.( array had 0 to 4 index- I'm accessing position 5).
-
 
 this leads to unexpected results.
 
@@ -276,7 +277,7 @@ an attacker can use this for  changing program variables, crash the device, corr
 
 **Vulnerability**
 
-the buffer overflow may cause overwrite the nearby memory.
+the buffer overflow may cause using or overwriting the nearby memory.
 
 **Mitigation**
 
@@ -285,7 +286,7 @@ the buffer overflow may cause overwrite the nearby memory.
 
 ## **Conclusion**
 
-Through these three tasks, I learned three basic embedded security concepts:
+Through these four tasks, I learned four basic embedded security concepts:
 
 UART : How an exposed debug interface can reveal sensitive information.
 
@@ -293,6 +294,8 @@ I²C: Communication on a physical bus can be observed if the bus is accessible.
 
 Firmware concurrency: Shared data between the main program and interrupts needs proper handling.
 
-I also gained practical experience with ESP32, Wokwi, I²C, Logic Analyzer, GPIO interrupts, and shared variables.
+buffer overflow: Understood how this will cause memory safety problems
+
+Overall, this projects helped me understand the importance of security in embedded systems and gave me practical experience using ESP32 and Wokwi.
 
 
