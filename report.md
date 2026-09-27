@@ -42,6 +42,8 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 ## **1. Debug Interfaces and Physical Access – UART**
 
+(simulation link: https://wokwi.com/projects/new/esp32)
+
 **Aim**
 
 To understand UART communication and how a UART debug interface can expose information from an embedded system.
