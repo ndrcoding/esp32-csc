@@ -241,6 +241,47 @@ Therefore, shared data should be handled carefully.
 - Why "volatile" is used.
 - How to protect shared data using a critical section.
 
+## **4. Memory safety in embedded systems( buffer overflow)**
+
+**Aim**
+
+Demonstrating a buffer overflow and its security risk.
+
+**components**
+
+- ESP32
+- Wokwi serial monitor
+
+**What I did**
+
+First, I created a program using array and try to access memory outside arrays range.( array had 0 to 4 index- I'm accessing position 5).
+
+
+this leads to unexpected results.
+
+this causes the buffer overflow. it may cause overwrite the nearby memory because of accessing elements outside the allocated memory.
+( memory corruption does not always produce visible error)
+
+to protect from buffer overflow:
+
+check the size before accessing array. 
+
+also, given a warning using  Serial.println() when accessing elements outside the allocated memory for an aaray.
+
+**Security risk**
+
+accessing elements outside the memory causes overwrite nearby memory.
+
+an attacker can use this for  changing program variables, crash the device, corrupt he data etc..
+
+**Vulnerability**
+
+the buffer overflow may cause overwrite the nearby memory.
+
+**Mitigation**
+
+- Check the array size
+- avoid writing beyond allocated memory
 
 ## **Conclusion**
 
