@@ -5,18 +5,18 @@ ESP32 Project - Task 0
 Button LED control using Wokwi
 (simulation link: https://wokwi.com/projects/475163504726918145)
 
-Aim
+*Aim
 
 Building a beginner ESP32 project using Wokwi- Controlling LED using a button
 
-Components
+*Components
 
 - ESP32
 - LED
 - Resistor(220 ohm)
 - push button
 
-Connections
+*Connections
 
 - LED( anode ) - GPIO 2
 - LED( Cathode ) - Resistor end
@@ -24,12 +24,12 @@ Connections
 - push button - GPIO4
               - GND
 
-What I did
+*What I did
 
 First, I created a blinking LED using digitalWrite() and delay(), then changed it into a
 LED controlled using a button by using digitalRead() in a if-else loop .
 
-What I studied
+*What I Learned
 
 - ESP32 basics 
 - INPUT_PULLUP--internal resistance
@@ -44,18 +44,18 @@ Embedded Security Research – Task 1A
    
  (simulation link: https://wokwi.com/projects/475372978010816513)
 
-Aim
+*Aim
 
 To understand I²C communication and see how data travelling through the I²C bus can be observed.
 
-Components
+*Components
 
 - ESP32
 - SSD1306 OLED
 - MPU6050
 - Wokwi Logic Analyzer
 
-Connections
+*Connections
 
 For both OLED and MPU6050:
 
@@ -64,7 +64,7 @@ For both OLED and MPU6050:
 - VCC - 3V3
 - GND - GND
 
-What I Did
+*What I Did
 
 First, I created an I²C scanner using the ESP32.
 
@@ -74,7 +74,6 @@ The scanner found:
 - MPU6050 - "0x68"
 
 Then I read data from the MPU6050 using its registers.
-
 I also read the temperature register. After converting the raw value correctly, the temperature shown was about 24°C.
 
 After that, I connected the Wokwi Logic Analyzer:
@@ -84,7 +83,7 @@ After that, I connected the Wokwi Logic Analyzer:
 
 I started the simulation and observed the I²C signals. The Logic Analyzer showed the clock pulses on SCL and changing data on SDA.
 
-Vulnerability Identified
+*Vulnerability Identified
 
 I²C does not provide encryption by itself.
 
@@ -92,15 +91,13 @@ Therefore, if someone gets physical access to an exposed I²C bus, they may be a
 
 This experiment demonstrated the idea using the Wokwi Logic Analyzer.
 
-Mitigation
+*Mitigation
 
 - Restrict physical access to the hardware.
 - Avoid exposing unnecessary I²C connections.
 - Use additional security or encryption when sensitive data is transferred.
 
-What I Learned
-
-I learned:
+*What I Learned
 
 - Basic I²C communication.
 - I²C device addresses.
@@ -114,69 +111,58 @@ I learned:
 
    (simulation link: https://wokwi.com/projects/475794044534080513)
 
-Aim
+*Aim
 
 To understand interrupts and how the main program and an interrupt can access the same variable.
 
-Components
+*Components
 
 - ESP32
 - Push button
 - Serial Monitor
 
-Connections
+*Connections
 
 - Push button - GPIO 4
 - Other side of button - GND
 
 The ESP32's internal pull-up was used, so no external resistor was needed.
 
-What I Did
+*What I Did
 
 I created a variable called "count".
-
 The push button generates an interrupt when it is pressed.
-
 The interrupt increases the value of "count".
-
 The main program also reads the same variable.
-
 So, both the interrupt and the main program are accessing the same shared variable.
 
 I used:
 
 volatile int count = 0;
-
 because "count" is changed inside the interrupt.
 
-Protection
+*Protection
 
 I used:
 
 noInterrupts();
-
 int safeCount = count;
-
 interrupts();
 
 This temporarily stops interrupts while the main program copies the shared value.
-
 The value was then displayed using the Serial Monitor.
 
-Vulnerability Identified
+*Vulnerability Identified
 
 When an interrupt and the main program access the same shared data, improper handling can cause inconsistent results.
-
 Therefore, shared data should be handled carefully.
 
-Mitigation
+*Mitigation
 
 - Use "volatile" for variables shared with an interrupt.
 - Protect critical access using appropriate synchronization or critical sections.
 
-What I Learned
-
-I learned:
+*What I Learned
 
 - What an interrupt is.
 - How to use a push-button interrupt.
