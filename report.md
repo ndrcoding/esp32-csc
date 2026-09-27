@@ -76,7 +76,7 @@ Debug: Count = 3
 To demonstrate the security problem, I intentionally sent a dummy password through the UART debug output:
 
 System running
-Debug: Device ID = ESP32_001
+
 Debug: Password = 1234
 
 This showed that if sensitive information is printed through an accessible debug interface, someone with access to that interface could read the information.
