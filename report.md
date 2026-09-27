@@ -1,8 +1,8 @@
-#**Hardware / Embedded Security REPORT**
+# **Hardware / Embedded Security REPORT**
 
-##**ESP32 Project - Task 0**
+## **ESP32 Project - Task 0**
 
-##**1. Button LED control using Wokwi#**
+## **1. Button LED control using Wokwi**
 (simulation link: https://wokwi.com/projects/475163504726918145)
 
 **Aim**
@@ -38,9 +38,9 @@ LED controlled using a button by using digitalRead() in a if-else loop .
 
 
 
-##**Embedded Security Research – Task 1A**
+## **Embedded Security Research – Task 1A**
 
-##**1. Peripheral Bus Security and Physical Sniffing (I²C)**
+## **1. Peripheral Bus Security and Physical Sniffing (I²C)**
    
  (simulation link: https://wokwi.com/projects/475372978010816513)
 
@@ -107,7 +107,7 @@ This experiment demonstrated the idea using the Wokwi Logic Analyzer.
 - How a Logic Analyzer can be used to observe communication.
 
 
-##**2. Firmware Concurrency and Shared State**
+## **2. Firmware Concurrency and Shared State**
 
    (simulation link: https://wokwi.com/projects/475794044534080513)
 
@@ -174,7 +174,7 @@ Therefore, shared data should be handled carefully.
 - How to protect shared data using a critical section.
 
 
-##**Conclusion**
+## **Conclusion**
 
 Through these two tasks, I learned two basic embedded security concepts:
 
