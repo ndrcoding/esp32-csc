@@ -267,7 +267,7 @@ to protect from buffer overflow:
 
 check the size before accessing array. 
 
-also, given a warning using  Serial.println() when accessing elements outside the allocated memory for an aaray.
+also, given a warning using  Serial.println() when accessing elements outside the allocated memory for an array.
 
 **Security risk**
 
