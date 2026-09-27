@@ -71,8 +71,6 @@ Debug: Count = 1
 Debug: Count = 2
 Debug: Count = 3
 
-The counter was only used as a simple example of information that can be sent through UART for debugging.
-
 **Security Demonstration**
 
 To demonstrate the security problem, I intentionally sent a dummy password through the UART debug output:
@@ -85,31 +83,13 @@ This showed that if sensitive information is printed through an accessible debug
 
 **Vulnerability Identified**
 
-The main vulnerability is exposure of sensitive information through the UART debug interface.
-
-UART itself is useful for debugging, but leaving a debug interface accessible or printing sensitive information through it can create a security risk.
+Sensitive information may be exposed through accessible UART debug interface.
 
 **Mitigation**
 
-To reduce this risk:
-
 - Do not print passwords or secret keys through UART.
-- Avoid unnecessary debug messages in the final product.
 - Restrict physical access to UART pins.
-- Disable or restrict unused debug interfaces when appropriate.
-
-For the demonstration, I removed the password and kept only normal debugging information such as the counter.
-
-Final Observation
-
-After removing the sensitive information, the Serial Monitor showed messages such as:
-
-System running
-Debug: Count = 1
-Debug: Count = 2
-Debug: Count = 3
-
-This showed that UART can still be used for debugging without exposing unnecessary sensitive information.
+- Disable unused debug interfaces when appropriate.
 
 **What I Learned**
 
