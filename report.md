@@ -141,6 +141,8 @@ The scanner found:
 - OLED - "0x3C"
 - MPU6050 - "0x68"
 
+  this demonstrated that devices on i²c bus can be discovered by scanning their address.
+
 Then I read data from the MPU6050 using its registers.
 I also read the temperature register. After converting the raw value correctly, the temperature shown was about 24°C.
 
@@ -149,7 +151,9 @@ After that, I connected the Wokwi Logic Analyzer:
 - D0 - GPIO 21 (SDA)
 - D1 - GPIO 22 (SCL)
 
-I started the simulation and observed the I²C signals. The Logic Analyzer showed the clock pulses on SCL and changing data on SDA.
+I started the simulation and observed the I²C signals. The Logic Analyzer showed the clock pulses on SCL and changing data on SDA.( by zooming into waveform it could be observed).
+
+this demonstrated physical sniffing
 
 **Vulnerability Identified**
 
