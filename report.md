@@ -147,7 +147,9 @@ because "count" is changed inside the interrupt.
 I used:
 
 noInterrupts();
+
 int safeCount = count;
+
 interrupts();
 
 This temporarily stops interrupts while the main program copies the shared value.
