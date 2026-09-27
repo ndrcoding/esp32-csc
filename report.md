@@ -59,10 +59,10 @@ Connections
 
 For both OLED and MPU6050:
 
-- SDA → GPIO 21
-- SCL → GPIO 22
-- VCC → 3.3V
-- GND → GND
+- SDA - GPIO 21
+- SCL - GPIO 22
+- VCC - 3V3
+- GND - GND
 
 What I Did
 
@@ -70,8 +70,8 @@ First, I created an I²C scanner using the ESP32.
 
 The scanner found:
 
-- OLED → "0x3C"
-- MPU6050 → "0x68"
+- OLED - "0x3C"
+- MPU6050 - "0x68"
 
 Then I read data from the MPU6050 using its registers.
 
@@ -79,8 +79,8 @@ I also read the temperature register. After converting the raw value correctly, 
 
 After that, I connected the Wokwi Logic Analyzer:
 
-- D0 → GPIO 21 (SDA)
-- D1 → GPIO 22 (SCL)
+- D0 - GPIO 21 (SDA)
+- D1 - GPIO 22 (SCL)
 
 I started the simulation and observed the I²C signals. The Logic Analyzer showed the clock pulses on SCL and changing data on SDA.
 
@@ -126,8 +126,8 @@ Components
 
 Connections
 
-- Push button → GPIO 4
-- Other side of button → GND
+- Push button - GPIO 4
+- Other side of button - GND
 
 The ESP32's internal pull-up was used, so no external resistor was needed.
 
